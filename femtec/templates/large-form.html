@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>
+        {% block header %}
+        {% endblock %}
+    </h2>
+
+    {% if form.errors %}
+        <div class="note error">
+            There are errors in data you have submitted. Please
+            <br /> correct all of them and re-submit this form.
+        </div>
+    {% endif %}
+
+    {% if error %}
+        <div class="note error">
+            <b>ERROR:</b> {{ error|safe }}
+        </div>
+    {% endif %}
+
+    {% if message %}
+        <div class="note success">
+            {{ message|safe }}
+        </div>
+    {% endif %}
+
+    {% block prolog %}
+    {% endblock %}
+
+    <div class="form large">
+        <form id="form" method="post" action=".{% if next %}/?next={{ next }}{% endif %}"
+            {% block encoding %}{% endblock %}>
+            <ul>
+            {% for field in form %}
+                {% if not field.is_hidden %}
+                <li class="{% if field.errors %}error{% endif %}">
+
+                {{ field.label_tag }}
+                <br />
+                {{ field }}
+
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                    <span><b>ERROR:</b> {{ error|safe }}</span>
+                    {% endfor %}
+                {% else %}
+                    {% if field.help_text %}
+                    <span>{{ field.help_text|safe }}</span>
+                    {% endif %}
+                {% endif %}
+                </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+
+            {% for field in form %}
+                {% if field.is_hidden %}
+                {{ field }}
+                {% endif %}
+            {% endfor %}
+
+            <button id="submit" type="submit">{% block submit %}Submit{% endblock %}</button>
+        </form>
+    </div>
+
+    {% block epilog %}
+    {% endblock %}
+{% endblock %}
+

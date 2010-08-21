@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>
+        {% block header %}
+        {% endblock %}
+    </h2>
+
+    {% if form.errors %}
+        <div class="note error">
+            <b>ERROR:</b> {% block error %}{% endblock %}
+        </div>
+    {% else %}
+        {% if message %}
+            <div class="note success">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% block prolog %}
+    {% endblock %}
+
+    <div class="form small">
+        <form id="form" method="post" action=".{% if next %}/?next={{ next }}{% endif %}"
+            {% block encoding %}{% endblock %}>
+            <ul>
+            {% for field in form %}
+                {% if not field.is_hidden %}
+                <li>
+                    {{ field.label_tag }}
+                    <br />
+                    {{ field }}
+                    {% if field.help_text %}
+                    <span>{{ field.help_text }}</span>
+                    {% endif %}
+                </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+
+            {% for field in form %}
+                {% if field.is_hidden %}
+                {{ field }}
+                {% endif %}
+            {% endfor %}
+
+            <button id="submit" type="submit">{% block submit %}Submit{% endblock %}</button>
+        </form>
+    </div>
+
+    {% block epilog %}
+    {% endblock %}
+{% endblock %}
+

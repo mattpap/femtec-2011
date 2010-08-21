@@ -1,0 +1,105 @@
+
+HOWTO INSTALL FEMTEC 2011
+
+NOTES:
+
+   # means root prompt
+   $ means user prompt
+
+ASSUMPTIONS:
+
+   1. Apache2 and mod_python are already there.
+   2. This INSTALL is for Debian, although I have no Debian installed
+      nor ever configured one (there might be confusion with Gentoo).
+
+Install MySQL, unless it's already installed:
+
+ # apt-get install mysql-server
+ # apt-get install mysql-client
+
+ # /etc/init.d/mysql start
+
+(possibly you will also edit /etc/mysql/my.cnf)
+
+Configure MySQL for FEMTEC 2011:
+
+ # mysql -u root
+
+(use -p if you have password for MySQL root)
+
+ mysql> create database femtec_2011;
+ mysql> create user femtec identified by 'femtec-pass';
+ mysql> grant all privileges on femtec_2011.* to femtec;
+
+(database name, user name and password must match FEMTEC 2011
+ configuration, which is stored in femtec-2011/femtec/settings.py)
+
+Install Django and PIL:
+
+ # apt-get install python-django
+ # apt-get install python-imaging
+
+(PIL is needed for security codes)
+
+Create directory where abstracts will be stored:
+
+ # mkdir -p /var/db/femtec-2011/abstracts
+ # chown -R apache:apache /var/db/femtec-2011
+
+Create directory where FEMTEC site will be stored:
+
+ # mkdir -p /var/www/events/femtec-2011
+ # chown -R apache:apache /var/www/events
+
+Now unpack archieve with FEMTEC sources:
+
+ $ cd /home/user
+ $ tar -xjvf femtec-2011.tar.bz2
+
+(substitute `user` with your login, alternatively you can put this
+ into /opt or /usr, or in location which you are comfortable with)
+
+Create tables in femtec database:
+
+ $ cd /home/user/femtec-2011/femtec
+ $ python manage.py syncdb
+
+(if you changed MySQL configuration, then adjust femtec/settings.py,
+ when creating tables you will be asked to setup main admin account)
+
+Create symbolic links to femtec code and media files:
+
+ # ln -s /home/user/femtec-2011/femtec /var/www/events/femtec-2011/femtec
+ # ln -s /home/user/femtec-2011/femtec/media /var/www/events/femtec-2011/media
+
+Copy Apache2 configuration to appropriate location:
+
+ # cp /home/user/femtec-2011/conf/femtec-2011.conf /etc/apache2/sites-enabled/
+
+(if you prefer to use /var/www2 or something instead /var/www, you will
+ need to adjust previous step accordingly and edit femtec-2011.conf manually)
+
+(possibly you will also need to adjust ServerName in femtec-2011.conf)
+
+Now you can restart Apache2 service:
+
+ # /etc/init.d/apache2 restart
+
+Last step is to create (or link) special directories:
+
+ $ cd /home/user/femtec-2011/femtec/media
+
+ $ mkdir captchas
+ # chmod 775 captchas
+ # chown apache captchas
+
+ $ ln -s /usr/lib/python2.6/site-packages/django/contrib/admin/media admin
+
+(substitute python2.6 with version installed on your system)
+
+Finally, if everything works, you can will be able to browse:
+
+ http://yourhost/events/femtec-2011/
+
+(where `yourhost` can be localhost, hpfem.org etc., depending on configuration)
+

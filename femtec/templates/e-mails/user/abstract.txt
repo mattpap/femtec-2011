@@ -1,0 +1,36 @@
+{% extends "e-mails/user/base.txt" %}
+
+{% block content %}
+thank you for submitting an abstract for FEMTEC 2011 conference.
+
+Your abstract is identified by following data:
+
+ID: {{ abstract.id }}
+Title: {{ abstract.title }}
+
+SHA1 digest (TeX): {{ abstract.digest_tex }}
+SHA1 digest (PDF): {{ abstract.digest_pdf }}
+
+File size (TeX): {{ abstract.size_tex }} bytes
+File size (PDF): {{ abstract.size_pdf }} bytes
+
+Submitted on: {{ abstract.submit_date }}
+
+To confirm validity of submitted files, you can compute SHA1
+digest of TeX and PDF files and compare with digests sent in
+this E-mail. For this purpose you can use any program that
+generates SHA1 digests, e.g. sha1sum on Linux platforms.
+
+If any of digests you computed doesn't match digests provided
+in this E-mail, please try to re-submit both your files and
+repeat this procedure. If this does not help, please contact
+website administrator to solve the problem.
+
+Any time before submission deadline you can modify you abstract
+by changing its title or submitting updated TeX and PDF files.
+
+You can now proceed to:
+
+http://hpfem.org/events/femtec-2011/account/abstracts/
+{% endblock %}
+

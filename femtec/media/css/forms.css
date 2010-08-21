@@ -1,0 +1,93 @@
+
+form {
+    padding: 0;
+    margin: 0;
+}
+
+.form {
+    margin: 0 auto 5px auto;
+}
+
+.form.small {
+    border: 1px solid #e5e5e5;
+    padding: 5px 10px;
+    width: 23em;
+}
+
+.form.large {
+    width: 30em;
+}
+
+.form ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form.large ul {
+    border: 1px solid #e5e5e5;
+    margin-bottom: 5px;
+}
+
+.form li {
+    color: #777777;
+}
+
+.form.small li {
+    padding-bottom: 5px;
+}
+
+.form.large li {
+    padding: 5px 10px;
+}
+
+.form.large li {
+    border-top: 1px dashed #e5e5e5;
+}
+
+.form.large li:first-child {
+    border-top: none;
+}
+
+.form img {
+    margin-bottom: -5px;
+}
+
+.form span {
+    margin-top: 5px;
+    font-size: 8pt;
+    display: block;
+}
+
+.form input {
+    background-color: #fbfbfb !important;
+    border: 1px solid #e5e5e5 !important;
+    color: #000000 !important;
+    margin-top: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.form input:hover {
+    background-color: #f5f5f5 !important;
+}
+
+.form select {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.form button, .button {
+    background-color: #254b6f !important;
+    border: 1px solid #254b6f !important;
+    color: #ffffff !important;
+    padding: 3px 1em;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form button:hover, .button:hover {
+    background-color: #a0bbd4 !important;
+    color: #254b6f !important;
+}
+

@@ -1,0 +1,22 @@
+{% extends "small-form.html" %}
+
+{% block header %}
+Login to FEMTEC 2011 Website
+{% endblock %}
+
+{% block error %}
+Wrong login or password. Please try again.
+{% endblock %}
+
+{% block submit %}
+Log In
+{% endblock %}
+
+{% block epilog %}
+<div style="text-align: center">
+    <a href="/events/femtec-2011/account/create/">Create account</a>
+    <span class="bar color">|</span>
+    <a href="/events/femtec-2011/account/password/remind/">Forgot your password?</a>
+</div>
+{% endblock %}
+

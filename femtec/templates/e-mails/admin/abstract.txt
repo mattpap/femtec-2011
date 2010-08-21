@@ -1,0 +1,12 @@
+{% extends "e-mails/admin/base.txt" %}
+
+{% block content %}
+title: {{ abstract.title }}
+user: {{ user.email }}
+
+first name: {{ user.first_name }}
+last name: {{ user.last_name }}
+
+affiliation: {{ user.get_profile.affiliation }}
+{% endblock %}
+

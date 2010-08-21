@@ -1,0 +1,8 @@
+Dear Admin,
+{% block content %}
+{% endblock %}
+Regards,
+
+-- 
+FEMTEC 2011 Website 
+ 

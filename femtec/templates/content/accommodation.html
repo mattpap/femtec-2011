@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+    <script type="text/javascript">
+        pilsen_lat = 49.74520;
+        pilsen_lon = 13.38500;
+
+        pilsen_zoom = 15;
+
+        var map;
+
+        markers = [];
+
+        $(document).ready(function() {
+            pilsen_latlon = new google.maps.LatLng(pilsen_lat, pilsen_lon);
+
+            map = new google.maps.Map(document.getElementById("map"), {
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                center: pilsen_latlon,
+                zoom: pilsen_zoom,
+            });
+
+            markers.push(new google.maps.Marker({
+                position: new google.maps.LatLng(49.747641, 13.393094),
+                title: "Angelo Hotel",
+                map: map,
+            }));
+
+            markers.push(new google.maps.Marker({
+                position: new google.maps.LatLng(49.747740, 13.380572),
+                title: "Marriott Hotel",
+                map: map,
+            }));
+
+            markers.push(new google.maps.Marker({
+                position: new google.maps.LatLng(49.746576, 13.386065),
+                title: "Na Spilce Restaurant",
+                map: map,
+            }));
+
+            markers.push(new google.maps.Marker({
+                position: new google.maps.LatLng(49.748947, 13.380708),
+                title: "Brewery Museum",
+                map: map,
+            }));
+
+            markers.push(new google.maps.Marker({
+                position: new google.maps.LatLng(49.747588, 13.377632),
+                title: "St. Bartholomeus Cathedral",
+                map: map,
+            }));
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <h2>Accomodation</h2>
+
+    <p>
+        A limited number of rooms has been reserved in the <a href="http://www.angelo-pilsen.cz/">Angelo Pilsen</a>
+        hotel across the street from the Pilsner Urquell Brewery, at a special conference price of 49 EUR single room
+        and 58 EUR two bed room (including breakfast). Please mention that you belong to the FEMTEC 2011 conference while
+        making a reservation. Alternatively, accommodation is possible in the
+        <a href="http://www.marriott.com/hotels/travel/prgpz-courtyard-pilsen/">Marriott Courtyard Pilsen</a>
+        and many other hotels in Pilsen.
+    </p>
+
+    <div id="map"></div>
+{% endblock %}
+

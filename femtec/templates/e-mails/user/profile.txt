@@ -1,0 +1,34 @@
+{% extends "e-mails/user/base.txt" %}
+
+{% block content %}
+thank you for submitting your user profile. You have now completed
+initial registration for the FEMTEC 2011 conference. Please verify
+that the following information is correct:
+
+Affiliation: {{ profile.affiliation }}
+Address: {{ profile.address }}
+City: {{ profile.city }}
+Postal Code: {{ profile.postal_code }}
+Country: {{ profile.country }}
+
+Are you going to present a paper? {% if profile.speaker %}Yes{% else %}No{% endif %}
+Are you a student participant? {% if profile.student %}Yes{% else %}No{% endif %}
+
+Number of accompanying persons: {{ profile.accompanying }}
+Do you require vegetarian food? {% if profile.vegeterian %}Yes{% else %}No{% endif %}
+
+Arrival date: {{ profile.arrival }}
+Departure date: {{ profile.departure }}
+
+Interested in post-conference program? {% if profile.postconf %}Yes{% else %}No{% endif %}
+T-shirt size: {{ profile.tshirt }}
+
+If there are any mistakes in the above information, you can go back
+to http://hpfem.org/events/femtec-2011/account/profile/ and improve
+your profile any time (you will get another confirmation E-mail).
+{% if profile.speaker %}
+You have professed to present a paper at FEMTEC 2011 conference.
+Please visit http://hpfem.org/events/femtec-2011/account/abstracts/ to
+submit your abstract.
+{% endif %}{% endblock %}
+

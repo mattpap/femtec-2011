@@ -1,0 +1,39 @@
+
+div.note {
+    margin: 0 auto 20px auto;
+    text-align: center;
+    padding: 10px;
+    width: 26em;
+}
+
+div.note {
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.error {
+    background-color: #ffebe8;
+}
+
+div.note.error {
+    border: 1px solid #cc0000;
+}
+
+.warning {
+    background-color: #ffeed4;
+}
+
+div.note.warning {
+    border: 1px solid #f86a04;
+}
+
+.success {
+    background-color: #d7f8c7;
+}
+
+div.note.success {
+    border: 1px solid #00ee00;
+}
+

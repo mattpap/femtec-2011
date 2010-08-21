@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>FEMTEC 2011 - 2nd European Seminar on Coupled Problems</title>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+        <link type="text/css" href="{{ MEDIA_URL }}css/style.css" rel="stylesheet" />
+        <link type="text/css" href="{{ MEDIA_URL }}css/menus.css" rel="stylesheet" />
+        <link type="text/css" href="{{ MEDIA_URL }}css/boxes.css" rel="stylesheet" />
+        <link type="text/css" href="{{ MEDIA_URL }}css/forms.css" rel="stylesheet" />
+        <link type="text/css" href="{{ MEDIA_URL }}css/notes.css" rel="stylesheet" />
+
+        <script src="{{ MEDIA_URL }}js/jquery/jquery.js"></script>
+
+        {% block styles %}{% endblock %}
+        {% block scripts %}{% endblock %}
+    </head>
+    <body>
+        <div id="background">
+            <div id="container">
+                <div id="header">
+                    {% if user.is_authenticated %}
+                        <span class="bold">
+                            {{ user.get_full_name }}
+                        </span>
+                        {% if user.is_staff and user.is_superuser %}
+                            (<a href="/events/femtec-2011/admin/">admin</a>)
+                        {% endif %}
+                        <span class="bar">|</span>
+                        <a href="/events/femtec-2011/account/logout/">logout</a>
+                    {% else %}
+                        <a href="/events/femtec-2011/account/login/">login</a>
+                        <span class="bar color">|</span>
+                        <a href="/events/femtec-2011/account/create/">create account</a>
+                    {% endif %}
+                </div>
+                <div id="banner"></div>
+                <div class="box left">
+                    <div class="title">Main Menu</div>
+                    <ul class="menu">
+                        <li><a href="/events/femtec-2011/">Home Page</a></li>
+                        <li><a href="/events/femtec-2011/topics/">Conference Topics</a></li>
+                        <li><a href="/events/femtec-2011/keynote/">Keynote Speakers</a></li>
+                        <li><a href="/events/femtec-2011/committees/">Committees</a></li>
+                        <li><a href="/events/femtec-2011/payment/">Payment Information</a></li>
+                        <li><a href="/events/femtec-2011/venue/">Conference Venue</a></li>
+                        <li><a href="/events/femtec-2011/accommodation/">Accommodation</a></li>
+                        <li><a href="/events/femtec-2011/travel/">Travel Information</a></li>
+                        <li><a href="/events/femtec-2011/postconf/">Post Conference Program</a></li>
+                        <li><a href="/events/femtec-2011/contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="box right">
+                    <div class="title">Important Dates</div>
+                    <ul class="list">
+                        <li class="head">December 15, 2009</li>
+                        <li class="tail">Abstract submission deadline.</li>
+                        <li class="head">January 15, 2010</li>
+                        <li class="tail">Notification of acceptance.</li>
+                        <li class="head">March 15, 2010</li>
+                        <li class="tail">Early registration fee payment.</li>
+                        <li class="head">September 30, 2010</li>
+                        <li class="tail">Paper submission.</li>
+                    </ul>
+                </div>
+                <div class="box right">
+                    <div class="title">Latest News</div>
+                    <ul class="list">
+                        <li class="head">September 12, 2009</li>
+                        <li class="tail">FEMTEC 2011 website launched.</li>
+                    </ul>
+                </div>
+                <div class="box right">
+                    <div class="title">FEMTEC 2011 Color Flyer</div>
+                    <ul class="list">
+                        <li class="tail">The flyer for FEMTEC 2011 in PDF can be found
+                        <a href="{{ MEDIA_URL }}img/flyer.pdf">here</a>.</li>
+                    </ul>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="box left">
+                    <div class="title">User Menu</div>
+                    <ul class="menu">
+                        <li><a href="/events/femtec-2011/account/">User Home</a></li>
+                        <li><a href="/events/femtec-2011/account/profile/">Edit Profile</a></li>
+                        {% if user.get_profile.speaker %}
+                        <li><a href="/events/femtec-2011/account/abstracts/">Submit Abstract</a></li>
+                        {% endif %}
+                        <li><a href="/events/femtec-2011/account/password/change/">Change Password</a></li>
+                        <li><a href="/events/femtec-2011/account/delete/">Delete Account</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+                <div class="box right">
+                    <div class="title">Previous FEMTEC 2009</div>
+                    <ul class="list">
+                        <li class="tail">Previous FEMTEC 2009 took place in the national
+                        park Czech Switzerland in northern Czech Republic. Visit its
+                        <a href="http://hpfem.org/events/femtec-2009/">web page</a>
+                        for more information.</li>
+                    </ul>
+                </div>
+                <div id="content">
+                    {% block content %}
+                        {% block message %}
+                            {% if message %}
+                                <div class="note success">
+                                    {{ message }}
+                                </div>
+                            {% endif %}
+                        {% endblock %}
+                        <h1>
+                            FEMTEC 2011
+                        </h1>
+                        <h3>
+                            2nd European Seminar on Coupled Problems
+                            <br/>
+                            June 28 &mdash; July 2, 2010, Pilsen, Czech Republic
+                        </h3>
+                        <p>
+                            <b>FEMTEC 2011</b> is an international workshop co&ndash;sponsored by the
+                            <a href="http://www.unr.edu/">University of Nevada</a> (Reno),
+                            <a href="http://www.it.cas.cz/en">Institute of Thermomechanics</a> (Prague),
+                            <a href="http://www.zcu.cz/">University of West Bohemia</a> (Pilsen),
+                            <a href="http://ntc.zcu.cz/en/index.html">New Technologies Research Centre</a> (Pilsen),
+                            and <a href="http://www.imacs-online.org/">IMACS</a>.
+                            The objective of the meeting is to advance the frontiers of computer modeling in
+                            various areas of engineering and science. Main topic areas include
+                            <ul>
+                            <li> Multiphysics models and methods
+                            </li>
+                            <li> Track on <a href="http://www.python.org">Python</a> in scientific computing
+                            </li>
+                            </ul>
+                            More details can be found in the
+                            <a href="http://hpfem.org/events/femtec-2011/topics/">Conference Topics</a> section.
+                        </p>
+                        <h3>Proceedings</h3>
+                        <p>
+                            Proceedings of FEMTEC 2011 will appear as special issues of
+                            <a href="http://www.global-sci.com/">Communications in Computational Physics</a>
+                            (2008 SCI impact factor 2.33) and <a href="http://ees.elsevier.com/matcom/">MATCOM</a>
+                            (2008 SCI impact factor 0.93).
+                        </p>
+                        <h3>Abstract Submission</h3>
+                        <p>
+                            In order to submit an abstract for FEMTEC 2011, click the "login" link
+                            in the top-right corner of the page and follow the instructions.
+                        </p>
+                    {% endblock %}
+                </div>
+            </div>
+            <div id="clearer"></div>
+            <div id="footer">
+                Copyright &copy; 2009 <a href="http://hpfem.org">hp-FEM group</a>,
+                <a href="http://www.unr.edu">University of Nevada, Reno</a>
+            </div>
+        </div>
+    </body>
+</html>
+

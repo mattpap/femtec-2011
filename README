@@ -1,0 +1,10 @@
+
+FEMTEC 2011 WEBSITE
+
+Dependencies:
+
+ 1. Apache2 + mod_python
+ 2. Python 2.5 or better
+ 3. Django 1.0 or better
+ 4. PIL
+

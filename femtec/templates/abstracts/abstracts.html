@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>My Abstracts</h2>
+
+    {% if message %}
+        <div class="note error">
+            <b>ERROR:</b> {{ message }}
+        </div>
+    {% endif %}
+
+    {% if not abstracts %}
+        <div id="abstracts-box">You didn't submit any abstracts yet.</div>
+    {% else %}
+        <div id="abstracts">
+            <table>
+                <tbody>
+                    {% for abstract in abstracts %}
+                        <tr>
+                            <th>ID:</th>
+                            <td>{{ abstract.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Title:</th>
+                            <td>{{ abstract.title|escape }}</td>
+                        </tr>
+                        <tr>
+                            <th>Digest TeX:</th>
+                            <td class="mono">{{ abstract.digest_tex }}</td>
+                        </tr>
+                        <tr>
+                            <th>Digest PDF:</th>
+                            <td class="mono">{{ abstract.digest_pdf }}</td>
+                        </tr>
+                        <tr>
+                            <th>Size TeX:</th>
+                            <td>{{ abstract.size_tex }} bytes</td>
+                        </tr>
+                        <tr>
+                            <th>Size PDF:</th>
+                            <td>{{ abstract.size_pdf }} bytes</td>
+                        </tr>
+                        <tr>
+                            <th>Submitted:</th>
+                            <td>{{ abstract.submit_date }}</td>
+                        </tr>
+                        {% ifnotequal abstract.submit_date abstract.modify_date %}
+                            <tr>
+                                <th>Last Modified:</th>
+                                <td>{{ abstract.modify_date }}</td>
+                            </tr>
+                        {% endifnotequal %}
+                        <tr>
+                            <th></th>
+                            <td>
+                                <button class="button" onclick="window.location='/events/femtec-2011/account/abstracts/modify/{{ abstract.id }}/'">Modify</button>
+                                <button class="button" onclick="window.location='/events/femtec-2011/account/abstracts/delete/{{ abstract.id }}/'">Delete</button>
+                                <button class="button" onclick="window.location='/events/femtec-2011/account/abstracts/tex/{{ abstract.id }}/'">Get TeX</button>
+                                <button class="button" onclick="window.location='/events/femtec-2011/account/abstracts/pdf/{{ abstract.id }}/'">Get PDF</button>
+                            </td>
+                        </tr>
+                        {% if not forloop.last %}
+                            <tr><th class="bar" /><td class="bar" /></tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+    <button class="button" onclick="window.location='/events/femtec-2011/account/abstracts/submit/'">Submit Abstract</button>
+{% endblock %}
+

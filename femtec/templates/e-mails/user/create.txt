@@ -1,0 +1,10 @@
+{% extends "e-mails/user/base.txt" %}
+
+{% block content %}
+thank you for creating an account at FEMTEC 2011 conference. You can now
+proceed to http://hpfem.org/events/femtec-2011/account/login/ and log in.
+
+After logging in you will get detailed information about further steps,
+including abstract submission procedure, if this applies in your case.
+{% endblock %}
+

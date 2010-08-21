@@ -1,0 +1,40 @@
+
+ul.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.menu > li {
+    border-top: 1px solid #d3e7f4;
+    background-color: #fafdff;
+    position: relative;
+    cursor: pointer;
+    color: #254b6f;
+}
+
+ul.menu > li:hover {
+    color: #ae5600;
+}
+
+ul.menu > li > a {
+    text-decoration: none;
+    padding: 4px 8px;
+    display: block;
+    color: inherit;
+}
+
+ul.menu > li.drop > div {
+    position: absolute;
+    display: none;
+    z-index: 1000;
+    width: 100%;
+    left: 100%;
+    top: -1px;
+}
+
+ul.menu > li.drop:hover > div {
+    display: block;
+    margin: 0;
+}
+

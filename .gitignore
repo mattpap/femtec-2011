@@ -1,0 +1,7 @@
+*.py[co]
+*.swp
+*~
+
+femtec/media/admin
+femtec/media/captchas
+

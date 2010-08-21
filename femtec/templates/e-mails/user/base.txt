@@ -1,0 +1,17 @@
+Dear {{ user.get_full_name }},
+{% block content %}
+{% endblock %}
+With best regards,
+
+--
+FEMTEC 2011 Organizing Committee
+
+Department of Mathematics and Statistics
+University of Nevada, Reno
+NV 89557-0084, USA
+
+E-mail: femtec2011-at-unr-dot-edu
+Phone: 1-775-784-6773
+Fax: 1-775-784-6378
+
+

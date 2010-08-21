@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Welcome {{ user.get_full_name }}</h2>
+
+<p>
+In order to submit an abstract, follow these instructions:
+</p>
+
+<h4>Edit Profile</h4>
+
+<p>
+    Please provide your basic information via a form that you can access by clicking
+    at the link "Edit Profile" on the left. After you submit the form, a new link
+    "Submit Abstract" will appear in the menu.
+</p>
+
+<h4>Submit Abstract</h4>
+
+<p>
+    Please prepare a one-page abstract using the
+    <a href="/events/femtec-2011/media/tex/abstract_template.tex">Latex template</a>
+    and
+    <a href="/events/femtec-2011/media/tex/llncs.cls">Latex class</a>.
+    The Latex template contains additional formatting instructions. When ready,
+    click on the link "Submit Abstract" on the left and upload both the Latex
+    source and the PDF file of your abstract.
+</p>
+{% endblock %}
+

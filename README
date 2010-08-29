@@ -1,10 +1,34 @@
-
 FEMTEC 2011 WEBSITE
+===================
 
 Dependencies:
+-------------
 
  1. Apache2 + mod_python
  2. Python 2.5 or better
  3. Django 1.0 or better
  4. PIL
+
+How To Run the Web Site Locally:
+--------------------------------
+
+To run this site locally, issue:
+    
+    $ mkdir -p ~/tmp/femtec-2011/abstracts
+    
+    Inside FEMTEC 2011 repository:
+    
+    $ cd femtec
+    $ ./manage.py syncdb
+    
+    Answer to all the questions asked by syncdb.
+    
+    $ ./manage.py runserver
+    
+    'runserver' will automatically restart itself if
+    a change to FEMTEC's files occurs. To restart it
+    manually, press Ctrl+C and rerun 'runserver'.
+
+
+
 

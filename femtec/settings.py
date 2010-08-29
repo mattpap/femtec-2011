@@ -23,8 +23,23 @@ from os import path
 # See Django documentation for possible values.
 #
 
-with open('/etc/femtec-2011.conf', 'r') as conf:
-    exec conf.read()
+try:
+    with open('/etc/femtec-2011.conf', 'r') as conf:
+        exec conf.read()
+except IOError:
+    BASE_PATH            = path.expanduser('~/tmp/femtec-2011')
+    DEBUG                = True
+    DATABASE_ENGINE      = 'sqlite3'
+    DATABASE_NAME        = path.join(BASE_PATH, 'femtec-2011.db')
+    DATABASE_USER        = ''
+    DATABASE_PASSWORD    = ''
+    DATABASE_HOST        = ''
+    DATABASE_PORT        = ''
+    SECRET_KEY           = 'Hokjzn_r-no1q&!!u73-qwt0*ea8i^0r65ydeh$@kyj&^_0q$e'
+    TIME_ZONE            = 'US/Pacific'
+    LANGUAGE_CODE        = 'en-us'
+    ADMINS               = ()
+    ABSTRACTS_PATH       = path.join(BASE_PATH, 'abstracts')
 
 TEMPLATE_DEBUG = DEBUG
 MANAGERS = ADMINS
@@ -80,6 +95,4 @@ AUTH_PROFILE_MODULE = 'site.UserProfile'
 AUTHENTICATION_BACKENDS = (
     'femtec.contrib.emailauth.EmailBackend',
 )
-
-ABSTRACTS_PATH = '/var/db/femtec-2011/abstracts/'
 

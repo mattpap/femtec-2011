@@ -29,6 +29,11 @@ To run this site locally, issue:
     a change to FEMTEC's files occurs. To restart it
     manually, press Ctrl+C and rerun 'runserver'.
 
+    When done, open a browser and redirect to:
+
+    http://localhost:8000/events/femtec-2011
+
+
 
 
 

@@ -1,0 +1,21 @@
+
+{% extends "e-mails/user/base.txt" %}
+
+{% block content %}
+this is a friendly reminder that the deadline for
+early conference fee payment (March 1) is approaching.
+For your convenience, we have extended this deadline
+to Friday, March 4.
+
+In order to receive the group rate at Harvey's, please
+book your accommodation until March 11. It is possible
+to do this either using an Internet link provided on
+FEMTEC home page, or by calling the hotel. When
+calling the hotel, mention the offer code S05FEMT.
+
+We are pleased to announce that the conference will
+include a two-hour tutorial on CUBIT and a two-hour
+tutorial on Paraview. Both tutorials will be delivered
+by core developers of these software packages.
+{% endblock %}
+

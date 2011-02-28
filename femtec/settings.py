@@ -40,6 +40,11 @@ except IOError:
     LANGUAGE_CODE        = 'en-us'
     ADMINS               = ()
     ABSTRACTS_PATH       = path.join(BASE_PATH, 'abstracts')
+    EMAIL_HOST           = 'smtp.unr.edu'
+    EMAIL_PORT           = 25
+    EMAIL_SUBJECT_PREFIX = ''
+    DEFAULT_FROM_EMAIL   = 'femtec2011-noreply@unr.edu'
+    SERVER_EMAIL         = DEFAULT_FROM_EMAIL
 
 TEMPLATE_DEBUG = DEBUG
 MANAGERS = ADMINS

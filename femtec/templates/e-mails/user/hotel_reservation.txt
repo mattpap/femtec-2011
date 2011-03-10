@@ -1,0 +1,19 @@
+
+{% extends "e-mails/user/base.txt" %}
+
+{% block content %}
+this is a friendly reminder that March 11 is the last day to reserve
+accommodation for the FEMTEC 2011 conference at the group rate.
+According to the hotel policy, all FEMTEC participants need to stay
+at Harvey's. Reservations can be done either by calling the hotel
+at 1-800-455-4770 or via the web page:
+
+http://www.harrahs.com/MakeReservation.do?propCode=HLT&packageCode=PS320.
+
+If the former case, please mention the offer code S05FEMT.
+
+Conference program will be available in the first half of April.
+
+Looking forward to meeting you in less than two months.
+{% endblock %}
+

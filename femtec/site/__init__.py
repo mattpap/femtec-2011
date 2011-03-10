@@ -2,7 +2,7 @@
 from django.template import Context, loader
 from django.contrib.auth.models import User
 
-def email_all_users(title, template, context=None, test=False):
+def email_all_users(title, template, context=None, test=False, exclude=[]):
     """Send an E-mail to all users. """
     template = loader.get_template('e-mails/user/%s.txt' % template)
 
@@ -12,6 +12,9 @@ def email_all_users(title, template, context=None, test=False):
         users = User.objects.all()
 
     for user in users:
+        if user in exclude:
+            continue
+
         _context = {'user': user}
 
         if context is not None:

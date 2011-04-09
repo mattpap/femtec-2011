@@ -8,6 +8,9 @@ about any discrepancies.
 
 http://hpfem.org/events/femtec-2011/media/program.pdf
 
+If you are chairing a session and would prefer not to do
+so, please let us know as well.
+
 Looking forward to meeting you in South Lake Tahoe!
 {% endblock %}
 

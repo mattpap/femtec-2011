@@ -1,0 +1,13 @@
+
+{% extends "e-mails/user/base.txt" %}
+
+{% block content %}
+we have finalized a preliminary conference program. Please
+be so kind to look for your presentation and let us know
+about any discrepancies.
+
+http://hpfem.org/events/femtec-2011/media/program.pdf
+
+Looking forward to meeting you in South Lake Tahoe!
+{% endblock %}
+
